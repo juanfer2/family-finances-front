@@ -1,16 +1,13 @@
 import React, { useEffect } from 'react'
-/*Redux */
-import { useDispatch, useSelector } from 'react-redux'
-import logo from './logo.svg'
-import './App.css'
 import { env } from './contants/api.constant'
-import { createMuiTheme } from '@material-ui/core/styles'
+import { useDispatch, useSelector } from 'react-redux'
+/** Styles */
+import './App.css'
 /** Actions */
 import { healtAction } from './flux/actions/healt.action'
 
 import Navbar from './components/navbar'
-import Home from './components/home'
-import Pokemons from './components/pokemons'
+import Home from './pages/home'
 
 function App() {
   const dispatch = useDispatch()
@@ -20,13 +17,14 @@ function App() {
     const startHealtDispacht = () => dispatch(healtAction())
     startHealtDispacht()
     console.log(env)
-  }, [])
+  }, [dispatch])
+
   console.log(state)
 
   return (
     <div className="App">
+      <Navbar />
       <Home />
-      <Pokemons />
     </div>
   )
 }

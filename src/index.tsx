@@ -1,25 +1,25 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
+import * as serviceWorker from './serviceWorker'
+import { Provider } from 'react-redux'
+
+/* styles */
 import './index.css'
-import { theme } from './index.styles'
-import { ThemeProvider } from '@material-ui/styles'
 import './styles/main.css'
 
-import App from './App'
-import * as serviceWorker from './serviceWorker'
-
-import { Provider } from 'react-redux'
+/* Redux*/
 import store from './flux/store'
+
+/* Components */
+import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <Suspense fallback={'loanding...'}>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </Suspense>
-    </ThemeProvider>
+    <Suspense fallback={'loanding...'}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </Suspense>
   </React.StrictMode>,
   document.getElementById('root'),
 )
