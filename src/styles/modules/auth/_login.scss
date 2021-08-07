@@ -1,0 +1,12 @@
+.login {
+  margin: 30px;
+
+  &-form {
+    padding: 15px;
+
+    form {
+      display: grid;
+      gap: 10px;
+    }
+  }
+}

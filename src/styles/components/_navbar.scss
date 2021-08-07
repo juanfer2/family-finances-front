@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+
+  &__logo-content {
+    span {
+      font-size: 20px;
+      font-weight: 400;
+
+      .icon {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  &__list-menu {
+    display: flex;
+    justify-content: space-around;
+
+    .item-menu {
+      margin-left: 15px;
+    }
+  }
+}

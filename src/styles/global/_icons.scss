@@ -1,0 +1,11 @@
+.icon {
+  font-size: 22px;
+  padding: 2px;
+  color: var(--color-black);
+
+  &--active {
+    color: var(--color-primary);
+    border: solid 1px var(--color-primary);
+    border-radius: 7px;
+  }
+}

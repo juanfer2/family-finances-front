@@ -1,0 +1,25 @@
+// 640px, 1024px, 1400px
+$breackpoints-up: (
+  'medium': '40em',
+  'large': '64em',
+  'xlarge': '87.5em',
+);
+
+// 639px, 1023px, 1399px
+$breackpoints-down: (
+  'medium': '39.9em',
+  'large': '63.9em',
+  'xlarge': '87.4em',
+);
+
+@mixin breackpoint($size) {
+  @media (min-width: mapget($breackpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breackpoint-down($size) {
+  @media (max-width: mapget($breackpoints-down, $size)) {
+    @content;
+  }
+}
