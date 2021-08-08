@@ -41,6 +41,23 @@ body {
   border-radius: 7px;
 }
 
+.label.Mui-focused {
+  color: var(--color-primary);
+}
+
+.MuiInput-underline:after {
+  color: var(--color-primary);
+}
+
+.MuiInputBase-input,
+.MuiOutlinedInput-input {
+  color: var(--color-primary);
+}
+.MuiInputBase-input:after,
+.MuiOutlinedInput-input:after {
+  color: var(--color-primary);
+}
+
 .card-list {
   display: flex;
   padding: 3rem;
@@ -145,6 +162,7 @@ body {
   font-weight: 400;
 }
 .navbar__logo-content span .icon {
+  cursor: pointer;
   color: var(--color-primary);
 }
 .navbar__list-menu {
@@ -153,6 +171,10 @@ body {
 }
 .navbar__list-menu .item-menu {
   margin-left: 15px;
+}
+
+.icon {
+  cursor: pointer;
 }
 
 .list {
@@ -168,11 +190,7 @@ body {
   margin-bottom: 5px;
 }
 .list-item:hover {
-  background: linear-gradient(
-    to bottom right,
-    var(--color-primary-ligth) 0%,
-    var(--color-primary) 100%
-  );
+  background: var(--color-primary);
   color: var(--color-white);
 }
 .list-item:hover .icon {
@@ -216,6 +234,15 @@ body {
 .login-form form {
   display: grid;
   gap: 10px;
+}
+
+.form-create {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+}
+.form-create .item {
+  width: 100%;
 }
 
 .layout {

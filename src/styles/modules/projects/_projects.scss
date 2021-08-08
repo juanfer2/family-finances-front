@@ -1,0 +1,12 @@
+.projects {
+}
+
+.form-create {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+
+  .item {
+    width: 100%;
+  }
+}

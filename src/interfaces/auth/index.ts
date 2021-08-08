@@ -12,6 +12,12 @@ export interface UserReducerState {
   errorRegister: null | string
 }
 
+export interface UserLoginReducerState {
+  user: null | UserInterface
+  loandingLogin: boolean
+  errorLogin: null | string
+}
+
 export type ActionReducerType = {
   type: string
   payload?: any

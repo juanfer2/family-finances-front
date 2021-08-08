@@ -5,7 +5,8 @@ import Register from '../../modules/auth/register'
 function Auht() {
   return (
     <div>
-      <Register />
+      {/*<Register />*/}
+      <Login />
     </div>
   )
 }
