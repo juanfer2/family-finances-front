@@ -1,5 +1,5 @@
 import { isEmpty } from 'lodash'
-import { User } from '../interfaces/user'
+import { User } from '../interfaces/entities/user'
 /*
 register(user: User) {
     const json = JSON.stringify(user);

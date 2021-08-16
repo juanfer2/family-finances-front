@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { loginUser } from '../../../flux/actions/auth/login.action'
 
@@ -34,7 +34,6 @@ export const useLogin = (): useLoginType => {
     validationSchema: validationSchema,
     initialValues: initialState,
     onSubmit: (values) => {
-      console.log(values)
       const startLoginUser = (user: any) => dispatch(loginUser(user))
       startLoginUser(values)
     },

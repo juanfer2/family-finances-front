@@ -15,7 +15,7 @@ interface ModalInterface {
 }
 
 function Modal({ children, title }: ModalInterface) {
-  const [open, setOpen] = React.useState(true)
+  const [open, setOpen] = React.useState(false)
 
   const handleClickOpen = () => {
     setOpen(true)

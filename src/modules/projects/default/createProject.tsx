@@ -6,7 +6,7 @@ import { Paper, TextField, Button, Fab } from '@material-ui/core'
 import { useCreateProject } from './useCreateProject'
 
 function CreateProject() {
-  const { state, formik } = useCreateProject()
+  const { formik } = useCreateProject()
 
   const {
     values,

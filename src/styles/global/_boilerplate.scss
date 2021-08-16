@@ -13,3 +13,14 @@ body {
   padding: 0;
   font-family: var(--font-general);
 }
+
+a {
+  text-decoration: none;
+  color: var(--color-black);
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}

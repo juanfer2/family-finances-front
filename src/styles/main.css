@@ -16,6 +16,16 @@ body {
   font-family: var(--font-general);
 }
 
+a {
+  text-decoration: none;
+  color: var(--color-black);
+}
+a:hover {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 :root {
   --font-inter: 'Inter', sans-sarif;
   --font-general: 'Roboto', sans-serif;

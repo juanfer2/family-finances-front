@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import { isAuth } from '../middlewares/authentication.middleware'
 
 import Projects from '../pages/projects'
+import DetailProject from '../pages/projects/detailProject'
 import Home from '../pages/home'
 import Auth from '../pages/auth'
 import NotFound from '../pages/notFound'
@@ -15,8 +16,11 @@ function RoutesConfig() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={Auth} />
-        <PrivateRoute path="/projects">
+        <PrivateRoute exact path="/projects">
           <Projects />
+        </PrivateRoute>
+        <PrivateRoute exact path="/projects/:id">
+          <DetailProject />
         </PrivateRoute>
         <Route component={NotFound} />
       </Switch>

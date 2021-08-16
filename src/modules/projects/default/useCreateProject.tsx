@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
 /* Formik */
 import { useFormik, Formik } from 'formik'
 import { validationSchema } from './validationSchema'
+
+import { CreateProject } from '../../../flux/actions/projects/createProject.action'
 
 const initialState: Project = {
   title: '',
@@ -14,27 +18,21 @@ export interface Project {
 }
 
 interface useCreateProject {
-  state: Project
   formik: any
 }
 
 export const useCreateProject = (): useCreateProject => {
-  const [state, setState] = useState<Project>(initialState)
-
-  const handleState = (event: any) => {
-    setState({
-      ...state,
-      [event.target.name]: event.target.value,
-    })
-  }
+  const dispatch = useDispatch()
+  const startCreateProject = (project: Project) =>
+    dispatch(CreateProject(project))
 
   const formik = useFormik({
     validationSchema: validationSchema,
     initialValues: initialState,
     onSubmit: (values) => {
-      console.log(values)
+      startCreateProject(values)
     },
   })
 
-  return { state, formik }
+  return { formik }
 }

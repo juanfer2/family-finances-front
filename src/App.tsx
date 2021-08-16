@@ -15,6 +15,7 @@ import Home from './pages/home'
 import Auth from './pages/auth'
 import SearchBar from './components/searchBar'
 import RoutesConfig from './routes'
+import SnackAlerBar from './components/snackAlertBar'
 
 function App() {
   const dispatch = useDispatch()
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <div className="App ">
+      <SnackAlerBar message="I LOve the Food (**)/" />
       <Router>
         <div className="">
           <Navbar name={'Family Finances'} />

@@ -1,15 +1,12 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-import ListItem from './default/listItem'
+interface List {
+  children: React.ReactNode
+}
 
-function List() {
-  return (
-    <div className="list">
-      <ListItem />
-      <ListItem />
-      <ListItem />
-    </div>
-  )
+function List({ children }: List) {
+  return <div className="list">{children}</div>
 }
 
 export default List

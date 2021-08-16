@@ -4,7 +4,7 @@ import {
   USER_ERROR,
 } from '../../../contants/user.constant'
 
-import { UserReducerState } from '../../../interfaces/user'
+import { UserReducerState } from '../../../interfaces/entities/user'
 import { ActionReducerType } from '../../../interfaces/flux'
 
 const initialState: UserReducerState = {
