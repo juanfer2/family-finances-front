@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useParams, useHistory } from 'react-router-dom'
 
 /* Formik */
 import { useFormik, Formik } from 'formik'
@@ -22,6 +23,7 @@ interface useCreateProject {
 }
 
 export const useCreateProject = (): useCreateProject => {
+  const history = useHistory()
   const dispatch = useDispatch()
   const startCreateProject = (project: Project) =>
     dispatch(CreateProject(project))
@@ -29,8 +31,9 @@ export const useCreateProject = (): useCreateProject => {
   const formik = useFormik({
     validationSchema: validationSchema,
     initialValues: initialState,
-    onSubmit: (values) => {
-      startCreateProject(values)
+    onSubmit: async (values) => {
+      await startCreateProject(values)
+      history.push('/projects')
     },
   })
 
