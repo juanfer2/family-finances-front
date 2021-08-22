@@ -1,25 +1,33 @@
-import ApolloClient, { InMemoryCache } from 'apollo-boost'
-import { isEmpty } from 'lodash'
+import {
+  ApolloClient,
+  HttpLink,
+  ApolloLink,
+  InMemoryCache,
+  concat,
+} from '@apollo/client'
+
 import { env } from '../../contants/api.constant'
 
-console.log(env.apiUrlGraphql)
-const Client: any = new ApolloClient({
-  uri: 'http://localhost:3000/api/v1/graphql',
-  cache: new InMemoryCache({
-    addTypename: false,
-  }),
-  onError: ({ networkError, graphQLErrors }) => {
-    console.log('graphQLErrors', graphQLErrors)
-    console.log('networkError', networkError)
-  },
-})
+// https://family-finances-backend.herokuapp.com/api/v1/graphql
 
-if (!isEmpty(localStorage.getItem('token'))) {
-  Client.headers = {
+const httpLink = new HttpLink({ uri: 'http://localhost:3000/api/v1/graphql' })
+
+const authMiddleware = new ApolloLink((operation, forward) => {
+  // add the authorization to the headers
+  operation.setContext(({ headers = {} }) => ({
     headers: {
-      Authorization: localStorage.getItem('token'),
+      ...headers,
+      Authorization: localStorage.getItem('token') || null,
     },
-  }
-}
+  }))
+
+  return forward(operation)
+})
+console.log(env.apiUrlGraphql)
+
+const Client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: concat(authMiddleware, httpLink),
+})
 
 export default Client

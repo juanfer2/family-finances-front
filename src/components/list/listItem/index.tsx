@@ -2,18 +2,24 @@ import React from 'react'
 
 import Icon from '../../icon'
 
-function ListItem() {
+interface ListItem {
+  title: string
+  description?: any
+}
+
+function ListItem({ title, description }: ListItem) {
   return (
     <div className="list-item">
       <div className="list-item__title">
         <div className="icon-container">
           <Icon name="building-house" />
         </div>
-        <span className="title">Apartamento</span>
+
+        <span className="title">{title}</span>
       </div>
 
       <div className="list-item__description">
-        <span className="item price">2'700.000</span>
+        <span className="item price">{description}</span>
 
         <div className="item icon-container">
           <Icon name="pencil" />

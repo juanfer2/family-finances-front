@@ -1,4 +1,8 @@
 import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+
+import { loginUser } from '../../../flux/actions/auth/login.action'
 
 /** Types */
 import { LoginType, useLoginType } from '../../../types/modules/auth'
@@ -8,14 +12,13 @@ import { useFormik } from 'formik'
 import { validationSchema } from './validationSchema'
 
 const initialState: LoginType = {
-  email: '',
-  firstName: '',
-  lastName: '',
-  password: '',
-  passwordConfirmation: '',
+  email: 'fer@gmail.com',
+  password: 'asdqwe123',
 }
 
 export const useLogin = (): useLoginType => {
+  const history = useHistory()
+  const dispatch = useDispatch()
   const [state, setState] = useState<LoginType>(initialState)
 
   const handleState = (event: any) => {
@@ -33,7 +36,9 @@ export const useLogin = (): useLoginType => {
     validationSchema: validationSchema,
     initialValues: initialState,
     onSubmit: (values) => {
-      console.log(values)
+      const startLoginUser = (user: any) => dispatch(loginUser(user))
+      startLoginUser(values)
+      history.push('/projects')
     },
   })
 

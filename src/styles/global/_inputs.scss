@@ -1,0 +1,16 @@
+.label.Mui-focused {
+  color: var(--color-primary);
+}
+
+.MuiInput-underline:after {
+  color: var(--color-primary);
+}
+
+.MuiInputBase-input,
+.MuiOutlinedInput-input {
+  color: var(--color-primary);
+
+  &:after {
+    color: var(--color-primary);
+  }
+}

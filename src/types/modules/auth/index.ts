@@ -1,9 +1,6 @@
 export type LoginType = {
   email: string
-  firstName: string
-  lastName: string
   password: string
-  passwordConfirmation: string
 }
 
 export type RegisterType = {

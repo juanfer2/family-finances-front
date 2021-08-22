@@ -1,4 +1,5 @@
 import { isEmpty } from 'lodash'
+import { User } from '../interfaces/entities/user'
 /*
 register(user: User) {
     const json = JSON.stringify(user);
@@ -45,21 +46,13 @@ interface userSession {
   token: string
 }
 
-export const setSession = (user: userSession) => {
-  const id: string = user.id.toString()
-  localStorage.setItem('id', id)
-  localStorage.setItem('token', user.token)
-  //  localStorage.setItem('last_name', user.last_name)
-  //  localStorage.setItem('first_name', user.first_name)
-  //  localStorage.setItem('email', user.email)
+export const setSession = (user: User) => {
+  const token = user.authenticationToken ? user.authenticationToken : ''
+  localStorage.setItem('token', token)
 }
 
 export const logout = () => {
-  localStorage.removeItem('id')
   localStorage.removeItem('token')
-  //  localStorage.removeItem('last_name')
-  //  localStorage.removeItem('first_name')
-  //  localStorage.removeItem('email')
 }
 
 export const isAuth = () => {

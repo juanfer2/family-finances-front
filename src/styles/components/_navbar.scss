@@ -9,6 +9,7 @@
       font-weight: 400;
 
       .icon {
+        cursor: pointer;
         color: var(--color-primary);
       }
     }
@@ -22,4 +23,8 @@
       margin-left: 15px;
     }
   }
+}
+
+.icon {
+  cursor: pointer;
 }

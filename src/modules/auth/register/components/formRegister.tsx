@@ -26,6 +26,7 @@ function FormRegister({
         <TextField
           name="email"
           label="Email"
+          variant="outlined"
           value={values.email}
           onChange={handleChange}
           onBlur={handleBlur}
@@ -36,6 +37,7 @@ function FormRegister({
         <TextField
           name="firstName"
           label="FisrtName"
+          variant="outlined"
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.firstName}
@@ -46,6 +48,7 @@ function FormRegister({
         <TextField
           name="lastName"
           label="LastName"
+          variant="outlined"
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.lastName}
@@ -56,6 +59,7 @@ function FormRegister({
         <TextField
           name="password"
           label="Password"
+          variant="outlined"
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.password}
@@ -66,6 +70,7 @@ function FormRegister({
         <TextField
           name="passwordConfirmation"
           label="Password Confirmation"
+          variant="outlined"
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.passwordConfirmation}
