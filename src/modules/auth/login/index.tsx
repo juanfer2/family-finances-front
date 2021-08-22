@@ -35,40 +35,38 @@ function Login() {
 
   return (
     <div className="login">
-      <Paper>
-        <h2>Login</h2>
-        <div className="login-form">
-          <form onSubmit={handleSubmit}>
-            <TextField
-              error={touched.email && errors.email}
-              name="email"
-              label="Email"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              helperText={touched.email && errors.email}
-            />
+      <h2>Login</h2>
+      <div className="login-form">
+        <form onSubmit={handleSubmit}>
+          <TextField
+            error={touched.email && errors.email}
+            name="email"
+            label="Email"
+            value={values.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            helperText={touched.email && errors.email}
+          />
 
-            <TextField
-              name="password"
-              label="Password"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.password}
-              helperText={touched.password && errors.password}
-            />
+          <TextField
+            name="password"
+            label="Password"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.password}
+            helperText={touched.password && errors.password}
+          />
 
-            <Button
-              variant="contained"
-              color="primary"
-              type="submit"
-              onClick={() => sendData()}
-            >
-              Register
-            </Button>
-          </form>
-        </div>
-      </Paper>
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            onClick={() => sendData()}
+          >
+            Register
+          </Button>
+        </form>
+      </div>
     </div>
   )
 }
