@@ -7,14 +7,16 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Fab,
 } from '@material-ui/core'
 
 interface ModalInterface {
   children: React.ReactNode
   title?: string
+  titleBtn: string
 }
 
-function Modal({ children, title }: ModalInterface) {
+function Modal({ children, title, titleBtn }: ModalInterface) {
   const [open, setOpen] = React.useState(false)
 
   const handleClickOpen = () => {
@@ -27,9 +29,17 @@ function Modal({ children, title }: ModalInterface) {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      {/*<Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Open alert dialog
-      </Button>
+  </Button>*/}
+      <Fab
+        variant="extended"
+        color="primary"
+        aria-label="add"
+        onClick={handleClickOpen}
+      >
+        {titleBtn}
+      </Fab>
       <Dialog
         open={open}
         onClose={handleClose}

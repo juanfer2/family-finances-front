@@ -6,8 +6,9 @@ import { Expense } from '../../../../interfaces/entities/expense'
 import { validationSchema } from './validationSchema'
 import { createExpense } from '../../../../flux/actions/expenses/createExpense.action'
 
-export const useCreateExpense = () => {
+export const useFormExpense = (initialStateExpense?: Expense) => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const { id }: any = useParams()
 
   const startCreateExpense = (expense: Expense) =>
@@ -30,10 +31,10 @@ export const useCreateExpense = () => {
 
   const formik = useFormik({
     validationSchema: validationSchema,
-    initialValues: initialState,
+    initialValues: initialStateExpense ? initialStateExpense : initialState,
     onSubmit: (values) => {
-      console.log(values)
       startCreateExpense(values)
+      history.push(`/projects/${id}`)
     },
   })
 

@@ -27,9 +27,6 @@ function ProjectsModule() {
       </List>
 
       <CreateProject />
-      <Fab variant="extended" color="primary" aria-label="add">
-        Created
-      </Fab>
     </div>
   )
 }

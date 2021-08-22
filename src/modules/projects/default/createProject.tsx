@@ -21,7 +21,7 @@ function CreateProject() {
   } = formik
   return (
     <div>
-      <Modal title="Create new project">
+      <Modal title="Create new project" titleBtn="New Project">
         <form className="form-create" onSubmit={formik.handleSubmit}>
           <TextField
             className="item"

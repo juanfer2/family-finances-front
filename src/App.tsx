@@ -41,7 +41,7 @@ function App() {
       <Router>
         <div className="">
           <Navbar name={'Family Finances'} />
-          <Breadcrumb />
+          {isAuth() && <Breadcrumb />}
           {/** <Auth/>*/}
           {/** <Home />*/}
           {/** <SearchBar />

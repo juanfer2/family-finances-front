@@ -1,11 +1,11 @@
 import React from 'react'
-import CreateExpenseModule from '../../../modules/expenses/createExpense'
+import FormExpense from '../../../modules/expenses/formExpense'
 
 function CreateExpense() {
   return (
     <div>
       <h1>Create Expense</h1>
-      <CreateExpenseModule />
+      <FormExpense />
     </div>
   )
 }

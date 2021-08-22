@@ -1,0 +1,19 @@
+.home {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+
+  h1 {
+    margin: 0;
+  }
+
+  .subtitle {
+    color: var(--color-black);
+  }
+
+  .home-image {
+    text-align: center;
+  }
+}

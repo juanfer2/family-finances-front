@@ -273,4 +273,21 @@ body {
 .layout {
   display: grid;
   grid-template-columns: 50px 1fr;
+}
+
+.home {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.home h1 {
+  margin: 0;
+}
+.home .subtitle {
+  color: var(--color-black);
+}
+.home .home-image {
+  text-align: center;
 } /*# sourceMappingURL=main.css.map */
