@@ -10,7 +10,9 @@ import { env } from '../../contants/api.constant'
 
 // https://family-finances-backend.herokuapp.com/api/v1/graphql
 
-const httpLink = new HttpLink({ uri: 'http://localhost:3000/api/v1/graphql' })
+const httpLink = new HttpLink({
+  uri: 'https://family-finances-backend.herokuapp.com/api/v1/graphql',
+})
 
 const authMiddleware = new ApolloLink((operation, forward) => {
   // add the authorization to the headers

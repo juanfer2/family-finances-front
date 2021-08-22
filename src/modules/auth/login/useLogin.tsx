@@ -12,8 +12,8 @@ import { useFormik } from 'formik'
 import { validationSchema } from './validationSchema'
 
 const initialState: LoginType = {
-  email: 'fer@gmail.com',
-  password: 'asdqwe123',
+  email: 'jfvilladiego3@gmail.com',
+  password: '123456',
 }
 
 export const useLogin = (): useLoginType => {
