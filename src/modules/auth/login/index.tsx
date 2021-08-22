@@ -51,6 +51,7 @@ function Login() {
           <TextField
             name="password"
             label="Password"
+            type="password"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.password}
