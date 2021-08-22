@@ -44,8 +44,8 @@
   },
   "scripts": {
     "start": "PORT=3001 react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "CI=false react-scripts build",
+    "test": "CI=false react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./",
     "prettier": "prettier --write ./**/*.js --staged"
