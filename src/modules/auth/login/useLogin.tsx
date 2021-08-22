@@ -10,6 +10,7 @@ import { LoginType, useLoginType } from '../../../types/modules/auth'
 /* Formik */
 import { useFormik } from 'formik'
 import { validationSchema } from './validationSchema'
+import { redirectTo } from '../../../routes/redirect'
 
 const initialState: LoginType = {
   email: 'jfvilladiego3@gmail.com',
@@ -35,9 +36,9 @@ export const useLogin = (): useLoginType => {
   const formik = useFormik({
     validationSchema: validationSchema,
     initialValues: initialState,
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       const startLoginUser = (user: any) => dispatch(loginUser(user))
-      startLoginUser(values)
+      await startLoginUser(values)
       history.push('/projects')
     },
   })

@@ -5,6 +5,7 @@ import { useFormik } from 'formik'
 import { Expense } from '../../../../interfaces/entities/expense'
 import { validationSchema } from './validationSchema'
 import { createExpense } from '../../../../flux/actions/expenses/createExpense.action'
+import { redirectTo } from '../../../../routes/redirect'
 
 export const useFormExpense = (initialStateExpense?: Expense) => {
   const dispatch = useDispatch()
@@ -32,8 +33,9 @@ export const useFormExpense = (initialStateExpense?: Expense) => {
   const formik = useFormik({
     validationSchema: validationSchema,
     initialValues: initialStateExpense ? initialStateExpense : initialState,
-    onSubmit: (values) => {
-      startCreateExpense(values)
+    onSubmit: async (values) => {
+      await startCreateExpense(values)
+      //redirectTo(`/projects/${id}`)
       history.push(`/projects/${id}`)
     },
   })
