@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 import { loginUser } from '../../../flux/actions/auth/login.action'
 
@@ -16,6 +17,7 @@ const initialState: LoginType = {
 }
 
 export const useLogin = (): useLoginType => {
+  const history = useHistory()
   const dispatch = useDispatch()
   const [state, setState] = useState<LoginType>(initialState)
 
@@ -36,6 +38,7 @@ export const useLogin = (): useLoginType => {
     onSubmit: (values) => {
       const startLoginUser = (user: any) => dispatch(loginUser(user))
       startLoginUser(values)
+      history.push('/projects')
     },
   })
 

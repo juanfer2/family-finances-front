@@ -68,6 +68,13 @@ a:hover {
   color: var(--color-primary);
 }
 
+.form-list {
+  margin: 5px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+}
+
 .card-list {
   display: flex;
   padding: 3rem;
@@ -233,6 +240,14 @@ body {
   border: 1px solid var(--color-black);
   border-radius: 10px;
   padding: 10px;
+}
+
+.create-expense {
+  margin: 30px;
+}
+
+.breadcrumb {
+  margin: 10px;
 }
 
 .login {

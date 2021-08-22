@@ -1,38 +1,38 @@
 import {
-  CREATE_EXPENCE_START,
-  CREATE_EXPENCE_SUCCESS,
-  CREATE_EXPENCE_ERROR,
+  CREATE_EXPENSE_START,
+  CREATE_EXPENSE_SUCCESS,
+  CREATE_EXPENSE_ERROR,
 } from '../../../contants/expense.constant'
 
-import { ExpenceReducerState } from '../../../interfaces/entities/expense'
+import { ExpenseReducerState } from '../../../interfaces/entities/expense'
 import { ActionReducerType } from '../../../interfaces/flux'
 
-const initialState: ExpenceReducerState = {
-  expence: null,
-  loadingExpence: false,
-  errorExpence: null,
+const initialState: ExpenseReducerState = {
+  expense: null,
+  loadingExpense: false,
+  errorExpense: null,
 }
 
 export default function (
-  state: ExpenceReducerState = initialState,
+  state: ExpenseReducerState = initialState,
   action: ActionReducerType,
 ) {
   switch (action.type) {
-    case CREATE_EXPENCE_START:
+    case CREATE_EXPENSE_START:
       return {
         ...state,
-        loadingExpence: true,
-        expence: null,
-        errorExpence: null,
+        loadingExpense: true,
+        expense: null,
+        errorExpense: null,
       }
-    case CREATE_EXPENCE_SUCCESS:
-      return { ...state, expence: action.payload, loadingExpence: true }
-    case CREATE_EXPENCE_ERROR:
+    case CREATE_EXPENSE_SUCCESS:
+      return { ...state, expense: action.payload, loadingExpense: true }
+    case CREATE_EXPENSE_ERROR:
       return {
         ...state,
-        expence: null,
-        loadingExpence: false,
-        errorExpence: action.payload,
+        expense: null,
+        loadingExpense: false,
+        errorExpense: action.payload,
       }
     default:
       return state

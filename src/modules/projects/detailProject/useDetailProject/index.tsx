@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 
 import { getProject } from '../../../../flux/actions/projects/getProject.action'
 
 export const useDetailProject = () => {
+  const history = useHistory()
   const dispatch = useDispatch()
   const state: any = useSelector((state: any) => state)
   const { getProjectReducer } = state
@@ -15,5 +16,9 @@ export const useDetailProject = () => {
     startGetProject(parseInt(id))
   }, [])
 
-  return { getProjectReducer }
+  const clickRedirectCreateExpense = () => {
+    history.push(`/projects/${id}/expenses/create`)
+  }
+
+  return { getProjectReducer, clickRedirectCreateExpense }
 }

@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client'
 
-export const CREATE_EXPENCE = gql`
-  mutation createProject(
+export const CREATE_EXPENSE = gql`
+  mutation createExpense(
     $name: String!
     $projectId: Int!
     $description: String
@@ -9,20 +9,18 @@ export const CREATE_EXPENCE = gql`
     $totalPaid: Float
     $totalDept: Float
     $datePay: String
-    $status: String
-    $numberQuota: Integer
+    $numberQuota: Int
   ) {
-    createProject(
+    createExpense(
       input: {
         expenseAttributes: {
-          name: $Float
+          name: $name
           projectId: $projectId
           description: $description
           priceTotal: $priceTotal
           totalPaid: $totalPaid
           totalDept: $totalDept
           datePay: $datePay
-          status: $status
           numberQuota: $numberQuota
         }
       }

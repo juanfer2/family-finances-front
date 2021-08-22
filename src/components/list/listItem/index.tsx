@@ -4,9 +4,10 @@ import Icon from '../../icon'
 
 interface ListItem {
   title: string
+  description?: any
 }
 
-function ListItem({ title }: ListItem) {
+function ListItem({ title, description }: ListItem) {
   return (
     <div className="list-item">
       <div className="list-item__title">
@@ -18,7 +19,7 @@ function ListItem({ title }: ListItem) {
       </div>
 
       <div className="list-item__description">
-        <span className="item price">2'700.000</span>
+        <span className="item price">{description}</span>
 
         <div className="item icon-container">
           <Icon name="pencil" />

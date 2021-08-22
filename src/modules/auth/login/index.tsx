@@ -38,7 +38,7 @@ function Login() {
       <Paper>
         <h2>Login</h2>
         <div className="login-form">
-          <form onSubmit={formik.handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <TextField
               error={touched.email && errors.email}
               name="email"

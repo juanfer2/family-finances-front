@@ -26,7 +26,7 @@ export default function (
         errorProjects: null,
       }
     case GET_PROJECTS_SUCCESS:
-      return { ...state, projects: action.payload, loadingProjects: true }
+      return { ...state, projects: action.payload, loadingProjects: false }
     case GET_PROJECTS_ERROR:
       return {
         ...state,

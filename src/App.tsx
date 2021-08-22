@@ -16,6 +16,7 @@ import Auth from './pages/auth'
 import SearchBar from './components/searchBar'
 import RoutesConfig from './routes'
 import SnackAlerBar from './components/snackAlertBar'
+import Breadcrumb from './components/breadcrumb'
 
 function App() {
   const dispatch = useDispatch()
@@ -40,6 +41,7 @@ function App() {
       <Router>
         <div className="">
           <Navbar name={'Family Finances'} />
+          <Breadcrumb />
           {/** <Auth/>*/}
           {/** <Home />*/}
           {/** <SearchBar />

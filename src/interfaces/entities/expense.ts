@@ -1,4 +1,4 @@
-export interface Expence {
+export interface Expense {
   id?: number
   name: string
   projectId: number
@@ -7,18 +7,24 @@ export interface Expence {
   totalPaid: number
   totalDept: number
   datePay: string
-  status: number
+  status: string
   numberQuota: number
 }
 
-export interface ExpenceReducerState {
-  expence: Expence | null
-  loadingExpence: boolean
-  errorExpence: any
+export interface ExpenseReducerState {
+  expense: Expense | null
+  loadingExpense: boolean
+  errorExpense: any
 }
 
-export interface ExpencesReducerState {
-  Expences: Expence[]
-  loadingExpences: boolean
-  errorExpences: any
+export interface ExpensesReducerState {
+  expenses: Expense[]
+  loadingExpenses: boolean
+  errorExpenses: any
+}
+
+export interface ExpensesState {
+  expenses: Expense[]
+  loadingExpenses: boolean
+  errorExpenses: any | null
 }
