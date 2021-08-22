@@ -276,11 +276,13 @@ body {
 }
 
 .home {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
   gap: 1em;
+  margin-top: 10%;
 }
 .home h1 {
   margin: 0;
