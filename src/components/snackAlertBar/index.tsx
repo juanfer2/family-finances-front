@@ -25,7 +25,7 @@ function SnackAlerBar({ classes, message, openSnack = false }: SnackAlerBar) {
     <div>
       <Snackbar
         anchorOrigin={{ vertical, horizontal }}
-        open={false}
+        open={open}
         ContentProps={{
           'aria-describedby': 'message-id',
           className: classes.snackbarStyleViaContentProps,
