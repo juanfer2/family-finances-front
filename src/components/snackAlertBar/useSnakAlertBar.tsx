@@ -7,7 +7,7 @@ interface StateSnak extends SnackbarOrigin {
 
 export const useSnakAlertBar = ({ open = false }: any) => {
   const [stateSnack, setStateSnack] = useState<StateSnak>({
-    open: true,
+    open: open,
     vertical: 'top',
     horizontal: 'center',
   })

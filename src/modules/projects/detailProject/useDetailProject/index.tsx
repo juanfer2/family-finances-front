@@ -7,7 +7,6 @@ import { Expense } from '../../../../interfaces/entities/expense'
 
 export const useDetailProject = () => {
   const [total, setTotal] = useState<number>(0)
-  const location = useLocation()
   const history = useHistory()
   const dispatch = useDispatch()
   const state: any = useSelector((state: any) => state)
