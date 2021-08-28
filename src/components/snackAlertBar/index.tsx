@@ -11,8 +11,14 @@ const styles = {
   },
 }
 
-function SnackAlerBar({ classes, message }: any) {
-  const { stateSnack } = useSnakAlertBar()
+interface SnackAlerBar {
+  classes?: any
+  message: string
+  openSnack?: boolean
+}
+
+function SnackAlerBar({ classes, message, openSnack = false }: SnackAlerBar) {
+  const { stateSnack } = useSnakAlertBar(openSnack)
   const { vertical, horizontal, open } = stateSnack
 
   return (

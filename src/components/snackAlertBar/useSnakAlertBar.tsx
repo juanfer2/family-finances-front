@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react'
 import { SnackbarOrigin } from '@material-ui/core/Snackbar'
 
 interface StateSnak extends SnackbarOrigin {
-  open: boolean
+  open?: boolean
 }
 
-export const useSnakAlertBar = () => {
+export const useSnakAlertBar = ({ open = false }: any) => {
   const [stateSnack, setStateSnack] = useState<StateSnak>({
-    open: false,
+    open: true,
     vertical: 'top',
     horizontal: 'center',
   })

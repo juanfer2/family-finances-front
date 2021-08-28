@@ -5,9 +5,10 @@ import Icon from '../../icon'
 interface ListItem {
   title: string
   description?: any
+  destroyAction?(): Function
 }
 
-function ListItem({ title, description }: ListItem) {
+function ListItem({ title, description, destroyAction }: ListItem) {
   return (
     <div className="list-item">
       <div className="list-item__title">
@@ -20,6 +21,12 @@ function ListItem({ title, description }: ListItem) {
 
       <div className="list-item__description">
         <span className="item price">{description}</span>
+
+        {destroyAction && (
+          <div className="item icon-container" onClick={destroyAction}>
+            <Icon name="trash-alt" />
+          </div>
+        )}
 
         <div className="item icon-container">
           <Icon name="pencil" />

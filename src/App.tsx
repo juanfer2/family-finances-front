@@ -10,10 +10,6 @@ import { healtAction } from './flux/actions/healt.action'
 import { getUser } from './flux/actions/user/user.action'
 
 import Navbar from './components/navbar'
-import List from './components/list'
-import Home from './pages/home'
-import Auth from './pages/auth'
-import SearchBar from './components/searchBar'
 import RoutesConfig from './routes'
 import SnackAlerBar from './components/snackAlertBar'
 import Breadcrumb from './components/breadcrumb'
@@ -38,15 +34,10 @@ function App() {
   return (
     <div className="App ">
       <SnackAlerBar message="I LOve the Food (**)/" />
-      <Router>
+      <Router forceRefresh={true}>
         <div className="">
           <Navbar name={'Family Finances'} />
           {isAuth() && <Breadcrumb />}
-          {/** <Auth/>*/}
-          {/** <Home />*/}
-          {/** <SearchBar />
-          <List />*/}
-
           <RoutesConfig />
         </div>
       </Router>
