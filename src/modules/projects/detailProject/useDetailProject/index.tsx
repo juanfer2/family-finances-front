@@ -4,9 +4,16 @@ import { useParams, useHistory, useLocation } from 'react-router-dom'
 
 import { getProject } from '../../../../flux/actions/projects/getProject.action'
 import { Expense } from '../../../../interfaces/entities/expense'
+import {
+  getExpensesSocket,
+  sendExpensesSocket,
+  getNewsExpenseSocket,
+  socket,
+} from '../../../../services/socketIOService'
 
 export const useDetailProject = () => {
   const [total, setTotal] = useState<number>(0)
+  const [getNewExpense, setGetNewExpense] = useState<any[]>([])
   const history = useHistory()
   const dispatch = useDispatch()
   const state: any = useSelector((state: any) => state)
@@ -16,7 +23,13 @@ export const useDetailProject = () => {
   useEffect(() => {
     const startGetProject = (id: number) => dispatch(getProject(id))
     startGetProject(parseInt(id))
-    //return ()=>{}
+    getExpensesSocket()
+    sendExpensesSocket(parseInt(id))
+    getNewsExpenseSocket()
+
+    return () => {
+      socket.disconnect()
+    }
   }, [])
 
   useEffect(() => {
@@ -31,12 +44,18 @@ export const useDetailProject = () => {
     }
   }, [getProjectReducer])
 
-  console.log(getProjectReducer?.project?.expenses)
-  console.log(total)
-
   const clickRedirectCreateExpense = () => {
     history.push(`/projects/${id}/expenses/create`)
   }
 
-  return { getProjectReducer, clickRedirectCreateExpense, total }
+  const getNewsExpenseSocket = () => {
+    socket.on('get_news_expense', (data: Expense) => {
+      console.log('data')
+      console.log(data)
+
+      setGetNewExpense((getNewExpense) => [...getNewExpense, data])
+    })
+  }
+
+  return { getProjectReducer, clickRedirectCreateExpense, total, getNewExpense }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { env } from './contants/api.constant'
 import { useDispatch, useSelector } from 'react-redux'
@@ -13,6 +13,8 @@ import Navbar from './components/navbar'
 import RoutesConfig from './routes'
 import SnackAlerBar from './components/snackAlertBar'
 import Breadcrumb from './components/breadcrumb'
+import { socket } from './services/socketIOService'
+import { Button } from '@material-ui/core'
 
 function App() {
   const dispatch = useDispatch()
@@ -29,7 +31,22 @@ function App() {
     }
   }, [dispatch])
 
-  console.log(state)
+  useEffect(() => {
+    healtSocket()
+    sendHealtSocket()
+  }, [])
+
+  const healtSocket = () => {
+    socket.on('healt', (data: any) => {
+      console.log('recibe')
+      console.log(data)
+    })
+  }
+
+  const sendHealtSocket = () => {
+    console.log('click')
+    socket.emit('healt', { data: 'ok' })
+  }
 
   return (
     <div className="App ">
@@ -38,6 +55,7 @@ function App() {
         <div className="">
           <Navbar name={'Family Finances'} />
           {isAuth() && <Breadcrumb />}
+          <Button onClick={() => sendHealtSocket()}>Click me</Button>
           <RoutesConfig />
         </div>
       </Router>

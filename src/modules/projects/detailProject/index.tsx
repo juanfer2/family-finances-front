@@ -9,14 +9,31 @@ import { Expense } from '../../../interfaces/entities/expense'
 import { formatValue } from '../../../utils/moneyFormat'
 
 function DetailProjectModule() {
-  const { getProjectReducer, clickRedirectCreateExpense, total } =
-    useDetailProject()
+  const {
+    getProjectReducer,
+    clickRedirectCreateExpense,
+    total,
+    getNewExpense,
+  } = useDetailProject()
   const { project } = getProjectReducer
+
+  console.log(getNewExpense)
 
   return (
     <div>
       <h3>{project && project.title}</h3>
       <span>{formatValue(total)}</span>
+      <List>
+        {getNewExpense &&
+          getNewExpense.map((expense: Expense, i: number) => (
+            <ListItem
+              key={expense.name}
+              title={expense.name}
+              description={formatValue(expense.priceTotal)}
+            />
+          ))}
+      </List>
+
       <List>
         {project?.expenses &&
           project.expenses.map((expense: Expense) => (

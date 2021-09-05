@@ -7,6 +7,7 @@ import { Expense } from '../../../../interfaces/entities/expense'
 import { validationSchema } from './validationSchema'
 import { createExpense } from '../../../../flux/actions/expenses/createExpense.action'
 import { redirectTo } from '../../../../routes/redirect'
+import { sendNewExpenseSocket } from '../../../../services/socketIOService'
 
 export const useFormExpense = (initialStateExpense?: Expense) => {
   const dispatch = useDispatch()
@@ -35,8 +36,9 @@ export const useFormExpense = (initialStateExpense?: Expense) => {
     validationSchema: validationSchema,
     initialValues: initialStateExpense ? initialStateExpense : initialState,
     onSubmit: async (values) => {
-      await startCreateExpense(values)
+      //await startCreateExpense(values)
       //redirectTo(`/projects/${id}`)
+      sendNewExpenseSocket(values)
       history.push(`/projects/${id}`)
     },
   })
